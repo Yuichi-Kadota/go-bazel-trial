@@ -9,7 +9,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "go-bazel-trial",
     visibility = ["//visibility:private"],
-    deps = ["@com_github_google_uuid//:go_default_library"],
+    deps = ["@com_github_google_uuid//:uuid"],
 )
 
 go_binary(
