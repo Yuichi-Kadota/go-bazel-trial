@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix go-bazel-trial
+gazelle(name = "gazelle")
+
+go_library(
+    name = "go-bazel-trial_lib",
+    srcs = ["main.go"],
+    importpath = "go-bazel-trial",
+    visibility = ["//visibility:private"],
+    deps = ["@com_github_google_uuid//:go_default_library"],
+)
+
+go_binary(
+    name = "go-bazel-trial",
+    embed = [":go-bazel-trial_lib"],
+    visibility = ["//visibility:public"],
+)
